@@ -17,7 +17,7 @@ This project uses multiple spatial datasets as drivers and inputs for surface ru
 - **Watershed Boundary**: USGS Watershed Boundary Dataset (HUC8 – Nisqually River, WA)  
 - **Climate**: MACAv2 daily downscaled climate data  
   - Wet season mean precipitation (December–February)  
-  - Rx1day (maximum 1-day precipitation) representing extreme rainfall  
+  - Rx1day (maximum 1-day precipitation) as a proxy for storm intensity / extreme rainfall
   - Historical and future scenarios  
 - **Topography**: NASA SRTM (30 m resolution)  
   - Elevation  
