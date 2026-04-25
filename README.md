@@ -29,6 +29,32 @@ This project uses multiple spatial datasets as drivers and inputs for surface ru
 
 These datasets were selected to capture the main drivers of surface runoff, including precipitation, terrain, soil infiltration, and land surface characteristics.
 
+### Data Download & Setup (Required Downloads)
+
+Before running the notebook, download the following datasets and place them in the appropriate folders.  
+The notebook will create the project directory structure automatically, but you will need to place downloaded data into the corresponding folders on your local machine. 
+
+SRTM DEM and MACA climate data are accessed and downloaded programmatically within the notebook and do not require manual download.
+
+Note: File paths in the notebook may need to be updated to match your local directory structure. The workflow could also be adapted to another HUC8 watershed if desired.
+
+#### 1. Watershed Boundary (USGS WBD)
+- Source: https://www.usgs.gov/national-hydrography/watershed-boundary-dataset  
+- Map Downloader Link: https://apps.nationalmap.gov/downloader/#/
+- Download the HUC8 watershed boundary that includes the Nisqually River watershed (HUC8: 17110015)  
+- Place files in: watershed-boundary-dataset/
+
+
+#### 2. NLCD Impervious Surface
+- Source: https://www.mrlc.gov/viewer/
+- Product: NLCD Impervious Surface (30 m) for Study Area
+- Place files in: nlcd-impervious/
+
+#### 3. Soils (NRCS gSSURGO)
+- Source: https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database
+- Download gSSURGO for Washington State (geodatabase)
+- Place files in: soils/
+
 ## Workflow
 
 Data prep and processing were completed to create input rasters for a future fuzzy logic model.  
