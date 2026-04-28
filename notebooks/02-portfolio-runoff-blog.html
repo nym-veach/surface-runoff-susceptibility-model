@@ -7634,9 +7634,9 @@ a.anchor-link {
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="5afd0191-07a4-4f85-8b15-e63d7cce18c4" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="630ce8c0-9d05-43b7-80bd-65eef843db3c" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('5afd0191-07a4-4f85-8b15-e63d7cce18c4');
+var element = document.getElementById('630ce8c0-9d05-43b7-80bd-65eef843db3c');
 (function(root) {
   function now() {
     return new Date();
@@ -7888,9 +7888,9 @@ function(Bokeh) {} // ensure no trailing comma for IE
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="9c4cf2b9-072b-411c-b574-e50254617b3b" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="4299c938-3eca-4b9e-8b31-7e715efa2332" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('9c4cf2b9-072b-411c-b574-e50254617b3b');
+var element = document.getElementById('4299c938-3eca-4b9e-8b31-7e715efa2332');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -11663,7 +11663,7 @@ lon lat
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [109]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Create a function to harmonize climate rasters to match the reference DEM raster</span>
@@ -11680,20 +11680,25 @@ lon lat
 <span class="sd">        Returns:</span>
 <span class="sd">            xarray.DataArray: Harmonized climate raster matching the reference DEM."""</span>
     
+    <span class="c1"># Open the raster and squeeze to 2D if needed</span>
     <span class="n">da</span> <span class="o">=</span> <span class="n">rxr</span><span class="o">.</span><span class="n">open_rasterio</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
     <span class="n">da</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
+    <span class="c1"># Check if CRS is missing and assign crs if so</span>
     <span class="k">if</span> <span class="n">da</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">crs</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">da</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">write_crs</span><span class="p">(</span><span class="n">input_crs</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Assigned missing CRS </span><span class="si">{</span><span class="n">input_crs</span><span class="si">}</span><span class="s2"> to </span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 
+    <span class="c1"># Reproject to match reference DEM</span>
     <span class="n">da_harmonized</span> <span class="o">=</span> <span class="n">da</span><span class="o">.</span><span class="n">rio</span><span class="o">.</span><span class="n">reproject_match</span><span class="p">(</span>
         <span class="n">reference_dem</span><span class="p">,</span>
+        <span class="c1"># Use bilinear resampling for continous data</span>
         <span class="n">resampling</span><span class="o">=</span><span class="n">Resampling</span><span class="o">.</span><span class="n">bilinear</span>
     <span class="p">)</span>
-
+    <span class="c1"># Assign name to the harmonized DataArray</span>
     <span class="n">da_harmonized</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
 
+    <span class="c1"># Conditional check to squeeze any extra dimensions that may have been added during reprojection</span>
     <span class="k">if</span> <span class="n">da_harmonized</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
         <span class="n">da_harmonized</span> <span class="o">=</span> <span class="n">da_harmonized</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span>
 
@@ -11708,10 +11713,10 @@ lon lat
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [110]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="c1">#</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Set of harmonized rasters</span>
 <span class="n">harmonized_rasters</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s2">"dem"</span><span class="p">:</span> <span class="n">loaded</span><span class="p">[</span><span class="s2">"dem"</span><span class="p">],</span>
     <span class="s2">"slope"</span><span class="p">:</span> <span class="n">loaded</span><span class="p">[</span><span class="s2">"slope"</span><span class="p">],</span>
@@ -11719,6 +11724,7 @@ lon lat
     <span class="s2">"soil_score"</span><span class="p">:</span> <span class="n">loaded</span><span class="p">[</span><span class="s2">"soil_score"</span><span class="p">],</span>
 <span class="p">}</span>
 
+<span class="c1"># List of climate rasters to harmonize and add to the harmonized_rasters dictionary</span>
 <span class="n">climate_vars</span> <span class="o">=</span> <span class="p">[</span>
     <span class="s2">"pr_hist_djf_mean"</span><span class="p">,</span>
     <span class="s2">"pr_fut_djf_mean"</span><span class="p">,</span>
@@ -11726,7 +11732,9 @@ lon lat
     <span class="s2">"rx1day_fut_mean"</span>
 <span class="p">]</span>
 
+<span class="c1"># Loop through the climate rasters</span>
 <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">climate_vars</span><span class="p">:</span>
+    <span class="c1"># Harmonize each climate raster to match the reference DEM and add to the harmonized_rasters dictionary</span>
     <span class="n">harmonized_rasters</span><span class="p">[</span><span class="n">name</span><span class="p">]</span> <span class="o">=</span> <span class="n">harmonize_climate_reference</span><span class="p">(</span>
         <span class="n">path</span><span class="o">=</span><span class="n">rasters</span><span class="p">[</span><span class="n">name</span><span class="p">],</span>
         <span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span>
