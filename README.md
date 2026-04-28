@@ -1,5 +1,8 @@
 # Mapping Surface Runoff Susceptibility in the Nisqually River Watershed, WA
 
+[![DOI](https://zenodo.org/badge/1207999619.svg)](https://doi.org/10.5281/zenodo.19838492)
+
+
 ## Project Overview
 
 This project maps surface runoff susceptibility within the Nisqually River watershed in Washington State. The goal is to identify where surface runoff is highest and evaluate how spatial patterns may change under future climate conditions.
