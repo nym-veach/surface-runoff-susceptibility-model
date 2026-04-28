@@ -82,7 +82,8 @@ Final outputs were saved as harmonized raster inputs for use in a surface runoff
 Final model inputs include:
 
 - Slope  
-- Flow accumulation  
+- Flow accumulation
+- Percent Impervious Surface 
 - Soil runoff score (derived from hydrologic soil groups)  
 - Wet season mean precipitation (historical and future)  
 - Extreme precipitation (Rx1day; historical and future)  
