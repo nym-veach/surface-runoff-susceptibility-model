@@ -1,0 +1,30 @@
+name: surface-runoff-susceptibility-model
+
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.11
+
+  - geopandas
+  - pandas
+  - matplotlib
+  - numpy
+
+  - hvplot
+  - holoviews
+
+  - earthaccess
+
+  - rioxarray
+  - xarray
+  - xarray-spatial
+
+  - pysheds
+  - rasterio
+
+  - jupyterlab
+  - notebook
+
+  - pip
