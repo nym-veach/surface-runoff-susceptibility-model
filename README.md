@@ -60,6 +60,14 @@ Note: File paths in the notebook may need to be updated to match your local dire
 - Download gSSURGO for Washington State (geodatabase)
 - Place files in: soils/
 
+## Environment Setup
+
+Create the project environment:
+conda env create -f environment.yml
+
+Activate the environment:
+conda activate surface-runoff-susceptibility-model
+
 ## Workflow
 
 Data prep and processing were completed to create input rasters for a future fuzzy logic model.  
