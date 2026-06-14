@@ -91,6 +91,10 @@ Key steps included:
 
 Final outputs were saved as harmonized raster inputs for use in a surface runoff susceptibility model.
 
+**Note:**
+\notebooks\02-portfolio-runoff-blog.ipynb is a writeup of the project after completing the preprocessing and harmonization stage of the project
+
+
 ## Model Inputs
 
 Final model inputs include:
