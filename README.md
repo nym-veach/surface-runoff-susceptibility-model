@@ -71,8 +71,10 @@ Activate the environment:
 conda activate surface-runoff-susceptibility-model
 
 ## Workflow
+To reproduce the preprocessing workflow, run notebooks/01-data-preprocess-harmonization.ipynb from top to bottom.
 
 Data prep and processing were completed to create input rasters for a future fuzzy logic model.  
+
 Key steps included:
 
 - Acquiring and organizing datasets for topography, climate, soils, and land cover  
@@ -103,3 +105,14 @@ Final model inputs include:
 ## Future Work
 
 These inputs will be integrated using a fuzzy logic approach to model relative surface runoff susceptibility. The model will compare historical and future conditions to identify areas of higher runoff risk and evaluate how susceptibility may shift under changing climate scenarios.
+
+## Data Citations
+- Abatzoglou, J. T., & Brown, T. J. (2012). A comparison of statistical downscaling methods suited for wildfire applications. International Journal of Climatology, 32(5), 772–780. https://doi.org/10.1002/joc.2313
+
+- NASA Jet Propulsion Laboratory (JPL). (2013). NASA Shuttle Radar Topography Mission Global 1 arc second [Data set]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MEASURES/SRTM/SRTMGL1.003
+
+- Soil Survey Staff. Gridded Soil Survey Geographic (gSSURGO) Database for Washington. United States Department of Agriculture, Natural Resources Conservation Service. Available online at https://gdg.sc.egov.usda.gov/. Accessed April 7, 2026.
+
+- U.S. Geological Survey (USGS), 2024, Annual NLCD Collection 1 Science Products: U.S. Geological Survey data release, https://doi.org/10.5066/P94UXNTS
+
+- U.S. Geological Survey. Watershed Boundary Dataset (WBD), 8-digit Hydrologic Unit Code 17110015 — Nisqually. National Geospatial Technical Operations Center, 2025.
