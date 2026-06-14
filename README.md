@@ -63,9 +63,11 @@ Note: File paths in the notebook may need to be updated to match your local dire
 ## Environment Setup
 
 Create the project environment:
+
 conda env create -f environment.yml
 
 Activate the environment:
+
 conda activate surface-runoff-susceptibility-model
 
 ## Workflow
