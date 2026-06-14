@@ -3,7 +3,7 @@
 #### DOI & Data Release
 [![DOI](https://zenodo.org/badge/1207999619.svg)](https://doi.org/10.5281/zenodo.19838492)
 
-The archived project release is available through Zenodo. This release contains the project repository and supporting materials used in the surface runoff susceptibility workflow.
+The project release is available through Zenodo. This release contains the project repository and supporting materials used in the surface runoff susceptibility workflow.
 
 ## Project Overview
 
