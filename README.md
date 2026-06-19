@@ -1,7 +1,9 @@
 # Mapping Surface Runoff Susceptibility in the Nisqually River Watershed, WA
 
+#### DOI & Data Release
 [![DOI](https://zenodo.org/badge/1207999619.svg)](https://doi.org/10.5281/zenodo.19838492)
 
+The project release is available through Zenodo. This release contains the project repository and supporting materials used in the surface runoff susceptibility workflow.
 
 ## Project Overview
 
@@ -58,9 +60,21 @@ Note: File paths in the notebook may need to be updated to match your local dire
 - Download gSSURGO for Washington State (geodatabase)
 - Place files in: soils/
 
+## Environment Setup
+
+Create the project environment:
+
+conda env create -f environment.yml
+
+Activate the environment:
+
+conda activate surface-runoff-susceptibility-model
+
 ## Workflow
+To reproduce the preprocessing workflow, run notebooks/01-data-preprocess-harmonization.ipynb from top to bottom.
 
 Data prep and processing were completed to create input rasters for a future fuzzy logic model.  
+
 Key steps included:
 
 - Acquiring and organizing datasets for topography, climate, soils, and land cover  
@@ -77,6 +91,10 @@ Key steps included:
 
 Final outputs were saved as harmonized raster inputs for use in a surface runoff susceptibility model.
 
+**Note:**
+\notebooks\02-portfolio-runoff-blog.ipynb is a writeup of the project after completing the preprocessing and harmonization stage of the project
+
+
 ## Model Inputs
 
 Final model inputs include:
@@ -91,3 +109,14 @@ Final model inputs include:
 ## Future Work
 
 These inputs will be integrated using a fuzzy logic approach to model relative surface runoff susceptibility. The model will compare historical and future conditions to identify areas of higher runoff risk and evaluate how susceptibility may shift under changing climate scenarios.
+
+## Data Citations
+- Abatzoglou, J. T., & Brown, T. J. (2012). A comparison of statistical downscaling methods suited for wildfire applications. International Journal of Climatology, 32(5), 772–780. https://doi.org/10.1002/joc.2313
+
+- NASA Jet Propulsion Laboratory (JPL). (2013). NASA Shuttle Radar Topography Mission Global 1 arc second [Data set]. NASA Land Processes Distributed Active Archive Center. https://doi.org/10.5067/MEASURES/SRTM/SRTMGL1.003
+
+- Soil Survey Staff. Gridded Soil Survey Geographic (gSSURGO) Database for Washington. United States Department of Agriculture, Natural Resources Conservation Service. Available online at https://gdg.sc.egov.usda.gov/. Accessed April 7, 2026.
+
+- U.S. Geological Survey (USGS), 2024, Annual NLCD Collection 1 Science Products: U.S. Geological Survey data release, https://doi.org/10.5066/P94UXNTS
+
+- U.S. Geological Survey. Watershed Boundary Dataset (WBD), 8-digit Hydrologic Unit Code 17110015 — Nisqually. National Geospatial Technical Operations Center, 2025.
