@@ -206,5 +206,9 @@ marimo/_static/
 marimo/_lsp/
 __marimo__/
 
-# Data ignore
-data/
+# Data ignore - keep folder structure, ignore contents
+data/*
+!data/.gitkeep
+!data/*/
+data/*/*
+!data/*/.gitkeep
