@@ -10,7 +10,7 @@ dependencies:
   - geopandas
   - pandas
   - matplotlib
-  - numpy
+   - numpy<2.4
 
   - hvplot
   - holoviews
