@@ -1,4 +1,12 @@
-# Mapping Surface Runoff Susceptibility in the Nisqually River Watershed, WA
+# Mapping Surface Runoff Susceptibility in the Nisqually River Watershed, Washington
+## Using a Fuzzy Logic Model Under Historical and Future Climate Conditions
+
+**Author:** Nym Griggs  
+**Course:** Earth Data Analytics Capstone - University of Colorado Boulder  
+**Science Mentor:** Dr. Lilly Jones  
+**Date:** July 2026  
+
+---
 
 #### DOI & Data Release
 [![DOI](https://zenodo.org/badge/1207999619.svg)](https://doi.org/10.5281/zenodo.19838492)
@@ -13,7 +21,12 @@ Surface water runoff is directly tied to flooding, which is one of the most comm
 
 This project was developed to better understand where runoff susceptibility is highest within the watershed and how those patterns may shift under future climate conditions. Mapping these patterns can support more proactive, data-driven decisions related to land use, infrastructure investment, and climate adaptation.
 
-This work is intended as a screening-level tool for water resource analysts, environmental planners, scientists, and other environmental professionals.
+The resulting susceptibility maps are intended to serve as a watershed-scale screening tool for identifying areas that may be more susceptible to surface runoff and how that susceptibility may shift with climate change. This fuzzy logic model was selected as it is less resource and data intensive than many physically based hydrologic models, supporting targeted resource allocation and prioritization of high-risk areas. It is not intended to replace detailed hydrologic modeling but rather offer a complementary tool to provide an accessible first-pass watershed-scale assessment when time, data, or computational resources are limited. It may be especially helpful for vulnerable communities without those resources.
+
+**Research Questions**
+
+1. Where is surface runoff susceptibility highest in the Nisqually River Watershed under historical conditions?
+2. Do projected mid-century increases in wet-season precipitation and storm intensity redistribute that risk, or simply intensify it where it already exists?
 
 ## Data
 
@@ -49,7 +62,6 @@ Note: File paths in the notebook may need to be updated to match your local dire
 - Download the HUC8 watershed boundary that includes the Nisqually River watershed (HUC8: 17110015)  
 - Place files in: watershed-boundary-dataset/
 
-
 #### 2. NLCD Impervious Surface
 - Source: https://www.mrlc.gov/viewer/
 - Product: NLCD Impervious Surface (30 m) for Study Area
@@ -71,44 +83,41 @@ Activate the environment:
 conda activate surface-runoff-susceptibility-model
 
 ## Workflow
-To reproduce the preprocessing workflow, run notebooks/01-data-preprocess-harmonization.ipynb from top to bottom.
 
-Data prep and processing were completed to create input rasters for a future fuzzy logic model.  
+To reproduce the analysis, run **`notebooks/01-runoff-fuzzy-logic-model.ipynb`** from top to bottom after setting up the environment and placing the data in the appropriate folders. The folder structure will set up the data folders for this. 
 
-Key steps included:
+This notebook covers the full workflow:
 
-- Acquiring and organizing datasets for topography, climate, soils, and land cover  
-- Clipping all datasets to the Nisqually watershed boundary  
-- Reprojecting all spatial data to a common coordinate system (EPSG:5070)  
-- Preparing impervious surface data from NLCD  
-- Deriving terrain variables from the DEM, including slope and flow accumulation  
-- Converting hydrologic soil groups (A–D) into a continuous runoff susceptibility score (0–1)  
-- Processing climate data (MACA) to calculate:
-  - Wet season mean precipitation  
-  - Rx1day (extreme precipitation)  
-  - for both historical and future scenarios  
-- Harmonizing all raster datasets to a common grid (same CRS, resolution, extent, and shape)
+- Acquiring and harmonizing input datasets (topography, climate, soils, land cover) to a common grid (EPSG:5070)
+- Deriving terrain variables (slope, flow accumulation) and processing climate data (wet-season precipitation, Rx1day)
+- Fuzzifying each input and combining runoff generation and concentration layers using a fuzzy gamma overlay (γ = 0.85)
+      - Note: It is possible to test other gamma operator and tailor the breakpoints to data if applied to another watershed as the sigmoid testing steps have been left in the workflow so it may be adapted. 
+- Producing the final historical, future, and change-in-susceptibility maps
 
-Final outputs were saved as harmonized raster inputs for use in a surface runoff susceptibility model.
+## Methods
 
-**Note:**
-\notebooks\02-portfolio-runoff-blog.ipynb is a writeup of the project after completing the preprocessing and harmonization stage of the project
+Surface runoff susceptibility was modeled using a fuzzy logic framework that integrates topographic, impervious surface, hydrologic soil group, and climate variables to estimate the relative likelihood of surface runoff generation and concentration across the Nisqually River Watershed. The topographic inputs such as slope were derived from a Digital Elevation Model (DEM) and flow accumulation was calculated using the `pysheds` [Python library](https://github.com/pysheds/pysheds). 
 
+From the MACA climate dataset, mean wet-season (December–February) precipitation and Rx1day (maximum 1-day precipitation) were calculated. Rx1day was included as a proxy for storm intensity. Historical (1976–2005) and mid-century future (2041–2070) climate scenarios were analyzed using the Community Climate System Model Version 4 (CCSM4) under the Representative Concentration Pathway (RCP) 4.5 emissions scenario. CCSM4 was selected because its projections are representative of the average response across climate models for the region. The mid-century future period was chosen to balance capturing projected climate change impacts while remaining relevant for near- to medium-term planning and decision-making. Although this analysis uses CCSM4, the workflow can be readily adapted to other climate models available through the MACA dataset with minor modifications.
 
-## Model Inputs
+Gamma values ranging from 0.5 to 0.9 were evaluated during model development. The gamma parameter controls the balance between the fuzzy algebraic product (more conservative) and fuzzy algebraic sum (more optimistic). A gamma value of 0.85 was selected because it provided a balanced representation of runoff susceptibility while avoiding overly restrictive or overly permissive predictions.
 
-Final model inputs include:
+Each model input was transformed into a standardized fuzzy membership value ranging from 0 to 1, where higher values indicate a greater contribution to runoff susceptibility. Runoff generation and runoff concentration variables were modeled separately to better represent hydrological conditions, before being combined to produce the final surface runoff susceptibility map. The fuzzified layers were then combined using a fuzzy gamma overlay (γ = 0.85). The final workflow produced maps of historical runoff susceptibility, projected future runoff susceptibility, and projected changes in runoff susceptibility.
 
-- Slope  
-- Flow accumulation
-- Percent Impervious Surface 
-- Soil runoff score (derived from hydrologic soil groups)  
-- Wet season mean precipitation (historical and future)  
-- Extreme precipitation (Rx1day; historical and future)  
+## Results
 
-## Future Work
+Runoff susceptibility was highest in urban areas with more impervious surface, and lowest in the highest parts of the watershed near Mount Rainier, likely because permeable soils and vegetation cover offset how quickly water would otherwise move down the steeper slopes there. The central watershed remains moderately vulnerable and experiences the highest rates of change under projected mid-century conditions, making it a strong candidate for targeted infrastructure and stormwater investment. Urban areas near the mouth of the river, which are already historically vulnerable to flooding, may also see increases in susceptibility.
 
-These inputs will be integrated using a fuzzy logic approach to model relative surface runoff susceptibility. The model will compare historical and future conditions to identify areas of higher runoff risk and evaluate how susceptibility may shift under changing climate scenarios.
+Under projected mid-century conditions, 69% of valid pixels in the watershed showed some change in susceptibility, and 93% of that change was an increase. This reinforces that climate change is more likely to intensify existing risk than create entirely new high-risk areas. Potential mitigation approaches include green infrastructure, riparian buffer restoration, floodplain reconnection, detention/retention ponds, upstream soil and forest conservation, and land use or impervious surface management policies.
+
+Runoff susceptibility was highest in urban, high-impervious areas, and lowest near Mount Rainier's upper slopes and a northeast region of the watershed, likely due to permeable soils in that area and vegetation offsetting the steeper terrain. Under projected mid-century conditions, 69% of the watershed showed some change in susceptibility, and 93% of that change was an increase — suggesting climate change is more likely to intensify existing risk than create new hotspots. See `reports/` for the full write-up and discussion.
+
+## Next Steps
+
+- Validate the model against observed runoff and flood data
+- Compare results against a machine learning approach (e.g., Random Forest)
+- Explore additional climate scenarios (e.g., RCP 8.5) or models beyond the ensemble mean
+- Apply the workflow to other HUC8 watersheds
 
 ## Data Citations
 - Abatzoglou, J. T., & Brown, T. J. (2012). A comparison of statistical downscaling methods suited for wildfire applications. International Journal of Climatology, 32(5), 772–780. https://doi.org/10.1002/joc.2313
@@ -120,3 +129,7 @@ These inputs will be integrated using a fuzzy logic approach to model relative s
 - U.S. Geological Survey (USGS), 2024, Annual NLCD Collection 1 Science Products: U.S. Geological Survey data release, https://doi.org/10.5066/P94UXNTS
 
 - U.S. Geological Survey. Watershed Boundary Dataset (WBD), 8-digit Hydrologic Unit Code 17110015 — Nisqually. National Geospatial Technical Operations Center, 2025.
+
+## Disclaimer
+
+This repository reflects independent academic work completed as part of my graduate capstone at CU Boulder. It was not conducted on behalf of, and does not represent the views of, my employer.
