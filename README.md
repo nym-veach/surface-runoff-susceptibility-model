@@ -106,11 +106,7 @@ Each model input was transformed into a standardized fuzzy membership value rang
 
 ## Results
 
-Runoff susceptibility was highest in urban areas with more impervious surface, and lowest in the highest parts of the watershed near Mount Rainier, likely because permeable soils and vegetation cover offset how quickly water would otherwise move down the steeper slopes there. The central watershed remains moderately vulnerable and experiences the highest rates of change under projected mid-century conditions, making it a strong candidate for targeted infrastructure and stormwater investment. Urban areas near the mouth of the river, which are already historically vulnerable to flooding, may also see increases in susceptibility.
-
-Under projected mid-century conditions, 69% of valid pixels in the watershed showed some change in susceptibility, and 93% of that change was an increase. This reinforces that climate change is more likely to intensify existing risk than create entirely new high-risk areas. Potential mitigation approaches include green infrastructure, riparian buffer restoration, floodplain reconnection, detention/retention ponds, upstream soil and forest conservation, and land use or impervious surface management policies.
-
-Runoff susceptibility was highest in urban, high-impervious areas, and lowest near Mount Rainier's upper slopes and a northeast region of the watershed, likely due to permeable soils in that area and vegetation offsetting the steeper terrain. Under projected mid-century conditions, 69% of the watershed showed some change in susceptibility, and 93% of that change was an increase — suggesting climate change is more likely to intensify existing risk than create new hotspots. See `reports/` for the full write-up and discussion.
+Runoff susceptibility was highest in urban, high-impervious areas, and lowest near Mount Rainier's upper slopes and a northeast region of the watershed, likely due to permeable soils in those areas and vegetation offsetting the steeper terrain. Under projected mid-century conditions, 69% of the watershed showed some change in susceptibility, and 93% of that change was an increase. This suggests climate change is more likely to intensify existing risk than create new hotspots. See `reports/` for the full write-up and discussion.
 
 ## Next Steps
 
