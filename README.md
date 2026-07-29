@@ -15,7 +15,7 @@ The project release is available through Zenodo. This release contains the proje
 
 This project maps surface runoff susceptibility within the Nisqually River watershed in Washington State. The goal is to identify where surface runoff is highest and evaluate how spatial patterns may change under future climate conditions.
 
-Surface water runoff is directly tied to flooding, which is one of the most common and impactful natural hazards. In regions like the Puget Sound, climate change is expected to increase winter precipitation and extreme rainfall events, which can push stormwater systems beyond their designed capacity. This creates risks to human safety, infrastructure, water quality, and ecosystems such as salmon habitat.
+Surface water runoff is a precursor to flooding, which is one of the most common and impactful natural hazards. In regions like the Puget Sound, climate change is expected to increase winter precipitation and extreme rainfall events, which can push stormwater systems beyond their designed capacity. This creates risks to human safety, infrastructure, water quality, and ecosystems such as salmon habitat.
 
 This project was developed to better understand where runoff susceptibility is highest within the watershed and how those patterns may shift under future climate conditions. Mapping these patterns can support more proactive, data-driven decisions related to land use, infrastructure investment, and climate adaptation.
 
