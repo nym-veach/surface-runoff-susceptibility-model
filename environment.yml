@@ -11,7 +11,7 @@ dependencies:
   - pandas
   - matplotlib
   - numpy<2.4
-  - dash
+  - dask
   - hvplot
   - holoviews
   - geoviews
