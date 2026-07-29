@@ -58,17 +58,17 @@ Note: File paths in the notebook may need to be updated to match your local dire
 - Source: https://www.usgs.gov/national-hydrography/watershed-boundary-dataset  
 - Map Downloader Link: https://apps.nationalmap.gov/downloader/#/
 - Download the HUC8 watershed boundary that includes the Nisqually River watershed (HUC8: 17110015)  
-- Place files in: watershed-boundary-dataset/
+- Place files in: data/watershed-boundary-dataset/
 
 #### 2. NLCD Impervious Surface
 - Source: https://www.mrlc.gov/viewer/
 - Product: NLCD Impervious Surface (30 m) for Study Area
-- Place files in: nlcd-impervious/
+- Place files in: data/nlcd-impervious/
 
 #### 3. Soils (NRCS gSSURGO)
 - Source: https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database
 - Download gSSURGO for Washington State (geodatabase)
-- Place files in: soils/
+- Place files in: data/soils/
 
 ## Environment Setup
 
