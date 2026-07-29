@@ -9,7 +9,7 @@
 #### DOI & Data Release
 [![DOI](https://zenodo.org/badge/1207999619.svg)](https://doi.org/10.5281/zenodo.19838492)
 
-The project release is available through Zenodo. This release contains the project repository and supporting materials used in the surface runoff susceptibility workflow.
+The project release is available through Zenodo. This release contains the project repository and supporting materials used in the surface runoff susceptibility workflow. This release contains the project repository, environment configuration, and the input datasets used in the surface runoff susceptibility workflow.
 
 ## Project Overview
 
@@ -46,13 +46,13 @@ This project uses multiple spatial datasets as drivers and inputs for surface ru
 These datasets were selected to capture the main drivers of surface runoff, including precipitation, terrain, soil infiltration, and land surface characteristics.
 
 ### Data Download & Setup (Required Downloads)
+Before running the notebook, download the required input datasets and place them in the appropriate project folders.
 
-Before running the notebook, download the following datasets and place them in the appropriate folders.  
-The notebook will create the project directory structure automatically, but you will need to place downloaded data into the corresponding folders on your local machine. 
+Run the notebook through Section 1.3 (Configure Project Directories) first - this automatically creates the folder structure below. Once created, place the downloaded datasets into their corresponding folders before continuing to run the rest of the notebook.
 
-SRTM DEM and MACA climate data are accessed and downloaded programmatically within the notebook and do not require manual download.
+The SRTM Digital Elevation Model (DEM) and MACA climate datasets are accessed and downloaded programmatically within the notebook and do not require manual download.
 
-Note: File paths in the notebook may need to be updated to match your local directory structure. The workflow could also be adapted to another HUC8 watershed if desired.
+Note: Although this workflow is configured for the Nisqually River Watershed (HUC8: 17110015), it could be adapted to other HUC8 watersheds with minor modifications.
 
 #### 1. Watershed Boundary (USGS WBD)
 - Source: https://www.usgs.gov/national-hydrography/watershed-boundary-dataset  
@@ -69,6 +69,8 @@ Note: File paths in the notebook may need to be updated to match your local dire
 - Source: https://www.nrcs.usda.gov/resources/data-and-reports/gridded-soil-survey-geographic-gssurgo-database
 - Download gSSURGO for Washington State (geodatabase)
 - Place files in: data/soils/
+
+All three datasets above (watershed boundary, NLCD impervious surface, and soils) are also included in the [Zenodo data release](https://doi.org/10.5281/zenodo.19838492) as a bundled alternative to downloading them individually from the sources above.
 
 ## Environment Setup
 
