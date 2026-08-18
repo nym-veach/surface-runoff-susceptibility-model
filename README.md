@@ -106,7 +106,7 @@ Each model input was transformed into a standardized fuzzy membership value rang
 
 ## Results
 
-Runoff susceptibility was highest in urban, high-impervious areas, and lowest near Mount Rainier's upper slopes and a northeast region of the watershed, likely due to permeable soils in those areas and vegetation offsetting the steeper terrain. Under projected mid-century conditions, 69% of the watershed showed some change in susceptibility, and 93% of that change was an increase. This suggests climate change is more likely to intensify existing risk than create new hotspots. See `reports/` for the full write-up and discussion.
+The change in runoff susceptibility between climate scenarios was highest in urban, high-impervious areas, and lowest near Mount Rainier's upper slopes and a northeast region of the watershed, likely due to permeable soils in those areas and vegetation offsetting the steeper terrain. Under projected mid-century conditions, 69% of the watershed showed some change in susceptibility, and 93% of that change was an increase. Areas that were moderately susceptible saw the greatest change, especially in the central watershed. This suggests climate change is more likely to intensify existing risk than create new hotspots. See `reports/` for the full write-up and discussion.
 
 ## Next Steps
 
